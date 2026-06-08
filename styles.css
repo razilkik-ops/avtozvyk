@@ -4057,3 +4057,236 @@ textarea {
     justify-items: center;
   }
 }
+
+.request-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 3vw, 46px);
+  color: #f7f2ed;
+}
+
+.request-modal[hidden] {
+  display: none;
+}
+
+.request-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(224, 122, 66, 0.22), transparent 28%),
+    rgba(3, 7, 10, 0.76);
+  border: 0;
+  backdrop-filter: blur(14px);
+}
+
+.request-modal__dialog {
+  position: relative;
+  width: min(100%, 560px);
+  max-height: min(760px, calc(100dvh - 34px));
+  overflow: auto;
+  padding: clamp(26px, 2.8vw, 44px);
+  background:
+    linear-gradient(145deg, rgba(28, 34, 39, 0.94), rgba(8, 13, 17, 0.96)),
+    #0b1014;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 24px;
+  box-shadow:
+    0 42px 120px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.request-modal__dialog::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.12;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 13px 13px;
+  pointer-events: none;
+}
+
+.request-modal__dialog > * {
+  position: relative;
+  z-index: 1;
+}
+
+.request-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  aspect-ratio: 1;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.request-modal__kicker {
+  margin: 0 0 12px;
+  color: #e17a43;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.request-modal h2 {
+  max-width: 420px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 3.3vw, 3.1rem);
+  line-height: 1.04;
+}
+
+.request-modal p:not(.request-modal__kicker) {
+  max-width: 460px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.request-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.request-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.request-form label span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.request-form input,
+.request-form textarea {
+  width: 100%;
+  min-width: 0;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  outline: 0;
+  font: inherit;
+  font-size: 0.96rem;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.request-form input {
+  height: 52px;
+  padding: 0 16px;
+}
+
+.request-form textarea {
+  min-height: 116px;
+  resize: vertical;
+  padding: 14px 16px;
+}
+
+.request-form input::placeholder,
+.request-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.request-form input:focus,
+.request-form textarea:focus {
+  border-color: rgba(224, 122, 66, 0.78);
+  box-shadow:
+    0 0 0 3px rgba(224, 122, 66, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.request-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  margin-top: 4px;
+  color: #fff2e8;
+  background: linear-gradient(180deg, #d87640, #ad542f);
+  border: 1px solid rgba(250, 151, 91, 0.58);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 22px 54px rgba(166, 75, 38, 0.28);
+  font-size: 0.96rem;
+  font-weight: 950;
+}
+
+.request-form__note {
+  min-height: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.request-form__note.is-success {
+  color: #f0a16d;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 560px) {
+  .request-modal {
+    align-items: end;
+    padding: 12px;
+  }
+
+  .request-modal__dialog {
+    width: 100%;
+    max-height: calc(100dvh - 24px);
+    padding: 24px 18px 20px;
+    border-radius: 20px;
+  }
+
+  .request-modal__close {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+  }
+
+  .request-modal h2 {
+    max-width: calc(100% - 44px);
+    font-size: 1.75rem;
+  }
+
+  .request-modal p:not(.request-modal__kicker) {
+    font-size: 0.9rem;
+  }
+
+  .request-form {
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .request-form input {
+    height: 48px;
+  }
+
+  .request-form textarea {
+    min-height: 96px;
+  }
+
+  .request-form button {
+    min-height: 52px;
+  }
+}
