@@ -9,7 +9,7 @@
       content="Профессиональная установка автомобильной акустики в Минске: шумоизоляция дверей, настройка усилителей и сабвуферов."
     />
     <link rel="preload" href="assets/hero-car-audio.webp" as="image" type="image/webp" />
-    <link rel="stylesheet" href="styles.css?v=client-copy-fixes-2" />
+    <link rel="stylesheet" href="styles.css?v=portfolio-gallery" />
   </head>
   <body>
     <header class="site-header" data-header>
@@ -337,7 +337,22 @@
           </div>
 
           <div class="portfolio-layout">
-            <article class="portfolio-feature">
+            <!--
+              КЕЙС ПОРТФОЛИО:
+              1. src у первого img — превью карточки на странице.
+              2. data-gallery-images — фотографии, которые откроются по клику на карточку.
+              3. Чтобы добавить новый кейс, скопируйте article ниже, замените заголовок, описание, теги, src и data-gallery-images.
+            -->
+            <article
+              class="portfolio-feature"
+              tabindex="0"
+              role="button"
+              aria-label="Посмотреть фотографии проекта BMW X5"
+              data-gallery-open
+              data-gallery-title="BMW X5"
+              data-gallery-subtitle="акустика + сабвуфер + DSP"
+              data-gallery-images="assets/portfolio-bmw-x5.webp, assets/portfolio-door-speaker.webp, assets/process-tuning.webp"
+            >
               <img src="assets/portfolio-bmw-x5.webp" alt="Интерьер BMW X5 после установки аудиосистемы" />
               <div class="portfolio-feature__text">
                 <h3>BMW X5</h3>
@@ -360,10 +375,21 @@
                   <dd>Глубокий бас, чистая сцена и точная настройка под предпочтения владельца</dd>
                 </dl>
               </aside>
+              <span class="portfolio-view-hint">Смотреть фото</span>
             </article>
 
             <div class="portfolio-cards" aria-label="Другие проекты">
-              <article class="portfolio-card">
+              <!-- Малые карточки работают так же: меняйте src превью и список data-gallery-images. -->
+              <article
+                class="portfolio-card"
+                tabindex="0"
+                role="button"
+                aria-label="Посмотреть фотографии проекта Mercedes E-Class"
+                data-gallery-open
+                data-gallery-title="Mercedes E-Class"
+                data-gallery-subtitle="шумоизоляция + настройка"
+                data-gallery-images="assets/portfolio-trunk.webp, assets/process-result.webp, assets/process-tuning.webp"
+              >
                 <img src="assets/portfolio-trunk.webp" alt="Сабвуферная система в багажнике Mercedes E-Class" />
                 <h3>Mercedes E-Class</h3>
                 <p>шумоизоляция + настройка</p>
@@ -371,8 +397,18 @@
                   <span>Шумоизоляция</span>
                   <span>DSP</span>
                 </div>
+                <span class="portfolio-view-hint">Смотреть фото</span>
               </article>
-              <article class="portfolio-card">
+              <article
+                class="portfolio-card"
+                tabindex="0"
+                role="button"
+                aria-label="Посмотреть фотографии проекта Toyota Camry"
+                data-gallery-open
+                data-gallery-title="Toyota Camry"
+                data-gallery-subtitle="усилитель + сабвуфер"
+                data-gallery-images="assets/portfolio-door-speaker.webp, assets/subwoofer-product.webp, assets/portfolio-trunk.webp"
+              >
                 <img src="assets/portfolio-door-speaker.webp" alt="Дверная акустика Toyota Camry" />
                 <h3>Toyota Camry</h3>
                 <p>усилитель + сабвуфер</p>
@@ -380,16 +416,36 @@
                   <span>Усилитель</span>
                   <span>Сабвуфер</span>
                 </div>
+                <span class="portfolio-view-hint">Смотреть фото</span>
               </article>
-              <article class="portfolio-card">
+              <article
+                class="portfolio-card"
+                tabindex="0"
+                role="button"
+                aria-label="Посмотреть фотографии проекта Audi Q7"
+                data-gallery-open
+                data-gallery-title="Audi Q7"
+                data-gallery-subtitle="акустика в штатные места"
+                data-gallery-images="assets/process-tuning.webp, assets/portfolio-door-speaker.webp, assets/hero-car-audio.webp"
+              >
                 <img src="assets/process-tuning.webp" alt="Настройка аудиосистемы Audi Q7" />
                 <h3>Audi Q7</h3>
                 <p>акустика в штатные места</p>
                 <div class="portfolio-tags">
                   <span>Акустика</span>
                 </div>
+                <span class="portfolio-view-hint">Смотреть фото</span>
               </article>
-              <article class="portfolio-card">
+              <article
+                class="portfolio-card"
+                tabindex="0"
+                role="button"
+                aria-label="Посмотреть фотографии проекта Porsche Cayenne"
+                data-gallery-open
+                data-gallery-title="Porsche Cayenne"
+                data-gallery-subtitle="премиум сабвуфер + DSP"
+                data-gallery-images="assets/portfolio-trunk.webp, assets/portfolio-bmw-x5.webp, assets/process-result.webp"
+              >
                 <img src="assets/portfolio-trunk.webp" alt="Премиум сабвуфер в Porsche Cayenne" />
                 <h3>Porsche Cayenne</h3>
                 <p>премиум сабвуфер + DSP</p>
@@ -397,6 +453,7 @@
                   <span>Сабвуфер</span>
                   <span>DSP</span>
                 </div>
+                <span class="portfolio-view-hint">Смотреть фото</span>
               </article>
             </div>
           </div>
@@ -507,6 +564,31 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="gallery-modal" hidden data-gallery-modal>
+      <button class="gallery-modal__backdrop" type="button" aria-label="Закрыть галерею" data-gallery-close></button>
+      <div
+        class="gallery-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gallery-modal-title"
+        aria-describedby="gallery-modal-subtitle"
+      >
+        <button class="gallery-modal__close" type="button" aria-label="Закрыть галерею" data-gallery-close>×</button>
+        <div class="gallery-modal__head">
+          <p class="gallery-modal__kicker">Фото проекта</p>
+          <h2 id="gallery-modal-title">Проект</h2>
+          <p id="gallery-modal-subtitle"></p>
+        </div>
+        <div class="gallery-modal__stage">
+          <button class="gallery-modal__arrow gallery-modal__arrow--prev" type="button" aria-label="Предыдущее фото" data-gallery-prev>‹</button>
+          <img src="" alt="" data-gallery-image />
+          <button class="gallery-modal__arrow gallery-modal__arrow--next" type="button" aria-label="Следующее фото" data-gallery-next>›</button>
+        </div>
+        <div class="gallery-modal__thumbs" aria-label="Миниатюры фотографий" data-gallery-thumbs></div>
+        <p class="gallery-modal__counter" data-gallery-counter></p>
+      </div>
+    </div>
+
+    <script src="script.js?v=portfolio-gallery"></script>
   </body>
 </html>
